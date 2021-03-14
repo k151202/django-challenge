@@ -167,7 +167,7 @@ if not DEBUG:
     STATICFILES_STORAGE = "config.custom_storages.StaticStorage"
     AWS_ACCESS_KEY_ID = "AKIASWLABRLFPQNTCGXC"
     AWS_SECRET_ACCESS_KEY = "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"
-    AWS_STORAGE_BUCKET_NAME = "django-challenge"
+    AWS_STORAGE_BUCKET_NAME = "django-challenge-hello"
     AWS_DEFAULT_ACL = "public-read"
 
     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.ap-northeast-2.amazonaws.com"
