@@ -55,6 +55,7 @@ PROJECT_APPS = [
 
 THIRD_PARTY_APPS = [
     "django_seed",
+    "storages",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -162,6 +163,16 @@ AUTH_USER_MODEL = "users.User"
 # Sentry
 
 if not DEBUG:
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    STATICFILES_STORAGE = "storages.backends.s3boto3.S3StaticStorage"
+    AWS_ACCESS_KEY_ID = "AKIASWLABRLFPQNTCGXC"
+    AWS_SECRET_ACCESS_KEY = "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"
+    AWS_STORAGE_BUCKET_NAME = "django-challenge"
+    AWS_DEFAULT_ACL = "public-read"
+
+    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.ap-northeast-2.amazonaws.com"
+    STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static"
+
     sentry_sdk.init(
         dsn="https://ccfb494e75f943e8ad6820f8f97246a0@o551632.ingest.sentry.io/5675246",
         integrations=[DjangoIntegration()],
