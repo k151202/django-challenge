@@ -163,8 +163,8 @@ AUTH_USER_MODEL = "users.User"
 # Sentry
 
 if not DEBUG:
-    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-    STATICFILES_STORAGE = "storages.backends.s3boto3.S3StaticStorage"
+    DEFAULT_FILE_STORAGE = "config.custom_storages.UploadStorage"
+    STATICFILES_STORAGE = "config.custom_storages.StaticStorage"
     AWS_ACCESS_KEY_ID = "AKIASWLABRLFPQNTCGXC"
     AWS_SECRET_ACCESS_KEY = "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"
     AWS_STORAGE_BUCKET_NAME = "django-challenge"
